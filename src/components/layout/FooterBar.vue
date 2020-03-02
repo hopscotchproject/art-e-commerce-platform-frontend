@@ -10,11 +10,9 @@
         <i class="fas fa-search"></i>
       </span>
     </router-link>
-    <!-- <router-link to="/browse"> -->
-      <span class="self-center">
-        <i class="far fa-plus-square"></i>
-      </span>
-    <!-- </router-link> -->
+    <span class="self-center" @click="postOnClick">
+      <i class="far fa-plus-square"></i>
+    </span>
     <router-link to="/follow" class="self-center">
       <span>
         <i class="fas fa-user-friends"></i>
@@ -30,6 +28,11 @@
 
 <script>
 export default {
-  name: 'FooterBar'
+  name: 'FooterBar',
+  methods: {
+    postOnClick() {
+      this.$store.commit('flipShowPostOverlay')
+    }
+  }
 }
 </script>
