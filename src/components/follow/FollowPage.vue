@@ -1,0 +1,3 @@
+<template>
+  <h1>This is follow page</h1>
+</template>
