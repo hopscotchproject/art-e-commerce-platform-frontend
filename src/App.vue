@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div>
+    <div v-if="!showPostOverlay">
       <router-view name="app-bar" class="fixed"/>
       <router-view class="py-12"/>
       <router-view name="footer-bar" class="fixed"/>
     </div>
     <!-- TODO: Use Vue transition! -->
-    <div :class="`app-overlay ${showPostOverlay ? 'app-overlay-show' : ''}`">
+    <div v-else>
       <post-overlay/>
     </div>
   </div>
