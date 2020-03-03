@@ -26,6 +26,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "tailwindcss": "^1.2.0",
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4",
