@@ -1,22 +1,81 @@
 <template>
-  <div>
-    <recent-liked/>
-    <browse-section/>
-    <h1>This is browsing page</h1>
-    <img src="/images/avatar.svg"/>
-    <img src="/images/avatar.svg"/>
-    <img src="/images/avatar.svg"/>
+  <div class="max-h-screen">
+    <div class="my-8 flex justify-around text-2xl">
+      <button>
+        <i class="fas fa-filter text-orange-400 border-2 border-gray-200 rounded-full h-12 w-12 flex items-center justify-center"/>
+      </button>
+      <span/>
+      <span/>
+      <router-link to="/recently-liked">
+        <button>
+          <i class="far fa-bookmark text-blue-400 border-2 border-gray-200 rounded-full h-12 w-12 flex items-center justify-center"/>
+        </button>
+      </router-link>
+    </div>
+    <div v-if="pieces.length" class="my-8">
+      <div class="flex justify-center">
+        <img :src="currentPiece.imageUrl" class="rounded"/>
+      </div>
+      <div class="mt-4 text-center">
+        <div>
+          <i class="fas fa-heart text-green-400"/>
+          <span>{{currentPiece.roughLikes}}k</span>
+        </div>
+        <div>{{`Title: ${currentPiece.title}`}}</div>
+        <div>{{`Artist: ${currentPiece.artist}`}}</div>
+        <div>{{`Price: ${currentPiece.priceUnit} ${currentPiece.price}`}}</div>
+      </div>
+      <div class="flex justify-around mt-8">
+        <button @click="next">
+          <i class="fas fa-times text-3xl text-red-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
+        </button>
+        <button @click="previous">
+          <i class="fas fa-undo text-2xl text-yellow-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
+        </button>
+        <button @click="next">
+          <i class="fas fa-heart text-2xl text-green-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
+        </button>
+      </div>
+    </div>
   </div>
 </template>
+
 <script>
-import RecentLiked from './RecentLiked'
-import BrowseSection from './BrowseSection'
+import stubApi from '../../api/StubApi'
 
 export default {
   name: 'BrowsePage',
-  components: {
-    'recent-liked': RecentLiked,
-    'browse-section': BrowseSection
+  data: () => ({
+    currentIndex: 0, // index
+    pieces: []
+  }),
+  computed: {
+    currentPiece: function() {
+      return this.pieces[this.currentIndex]
+    }
+  },
+  methods: {
+    next() {
+      const conditionalLoadPromise = this.currentIndex === this.pieces.length - 1 ?
+        this.loadNext() : Promise.resolve()
+      conditionalLoadPromise.then(() => {
+        this.currentIndex += 1
+      })
+    },
+    previous() {
+      if (this.currentIndex > 0) {
+        this.currentIndex -= 1;
+      }
+    },
+    loadNext() {
+      return stubApi.getNext().then(data => {
+        this.pieces = [...this.pieces, ...data]
+        return Promise.resolve()
+      })
+    }
+  },
+  mounted() {
+    this.loadNext()
   }
 }
 </script>
