@@ -20,7 +20,7 @@ class StubApi extends RestApi {
 
   getNext(count = 1) {
     const data = [...new Array(count)].map(() => ({
-      imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/400/400`,
       title: faker.lorem.word(),
       price: faker.random.number(),
       priceUnit: 'RMB',

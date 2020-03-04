@@ -1,5 +1,5 @@
 <template>
-  <div class="max-h-screen">
+  <div>
     <div class="my-8 flex justify-around text-2xl">
       <button>
         <i class="fas fa-filter text-orange-400 border-2 border-gray-200 rounded-full h-12 w-12 flex items-center justify-center"/>
@@ -15,7 +15,7 @@
     <div v-if="pieces.length" class="my-8">
       <div class="flex justify-center">
         <router-link to="/detail">
-          <img :src="currentPiece.imageUrl" class="rounded"/>
+          <img :src="currentPiece.imageUrl"/>
         </router-link>
       </div>
       <div class="mt-4 text-center">
