@@ -22,7 +22,10 @@
     </div>
     <hr class="mx-4 mt-6"/>
     <div class="mx-4 mt-4 flex justify-around">
-      <div class="underline">Tairan Shi</div>
+      <div>
+        <span class="underline">Tairan Shi<span>
+        <i class="fas fa-user-plus ml-2 text-gray-400"></i>
+      </div>
       <div class="text-sm">
         <div>Untitled, 2020</div>
         <div>Oil on canvas</div>
