@@ -14,7 +14,9 @@
     </div>
     <div v-if="pieces.length" class="my-8">
       <div class="flex justify-center">
-        <img :src="currentPiece.imageUrl" class="rounded"/>
+        <router-link to="/detail">
+          <img :src="currentPiece.imageUrl" class="rounded"/>
+        </router-link>
       </div>
       <div class="mt-4 text-center">
         <div>

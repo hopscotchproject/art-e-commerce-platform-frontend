@@ -14,6 +14,10 @@ class StubApi extends RestApi {
     })
   }
 
+  getOtherFeaturedWorks() {
+    return this.getRecentLiked()
+  }
+
   getNext(count = 1) {
     const data = [...new Array(count)].map(() => ({
       imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,

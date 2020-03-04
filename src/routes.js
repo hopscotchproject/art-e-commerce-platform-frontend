@@ -3,6 +3,7 @@ import FooterBar from './components/layout/FooterBar'
 import NotFound from './components/NotFound'
 import BrowsePage from './components/browse/BrowsePage'
 import RecentlyLiked from './components/browse/RecentlyLiked'
+import DetailPage from './components/browse/DetailPage'
 import SearchPage from './components/search/SearchPage'
 import FollowPage from './components/follow/FollowPage'
 import HomePage from './components/home/HomePage'
@@ -53,7 +54,14 @@ export default [{
     ...appBar,
     ...footerBar
   }
-}, {
+},{
+  path: '/detail',
+  components: {
+    default: DetailPage,
+    ...appBar,
+    ...footerBar
+  }
+},{
   path: '*',
   components: {
     ...appBar,
