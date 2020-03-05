@@ -9,7 +9,7 @@
         <span
           v-for="piece in activity.pieces"
           v-bind:key="piece.title + Math.random()"
-          class="flex-shrink-0 mx-2"
+          class="flex-shrink-0 mx-2 mb-2"
         >
           <img :src="piece.imageUrl"/>
           <div class="text-center text-sm">{{piece.title}}</div>

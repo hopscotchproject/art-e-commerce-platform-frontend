@@ -2,19 +2,20 @@
   <div>
     <!-- search bar -->
     <div class="m-2 p-2 border border-gray-400 rounded flex bg-gray-200 hover:bg-white">
-      <i class="fas fa-search w-1/12"/>
+      <i class="fas fa-search w-1/12 self-center"/>
       <input type="text" placeholder="Search" class="w-11/12 h-full outline-none bg-gray-200 focus:bg-white"/>
     </div>
     <!-- tags -->
-    <div class="flex flex-no-wrap overflow-x-auto">
+    <div class="flex flex-no-wrap overflow-x-auto mb-2">
       <span
         class="px-2 bg-gray-200 mx-2 border-gray-400 border text-sm rounded"
         v-for="tag in tags"
         v-bind:key="tag + Math.random()"
       >{{tag}}</span>
     </div>
+    <hr/>
     <!-- Search page tabs -->
-    <div class="flex">
+    <div class="flex mt-2">
       <router-link to='/search/activities' :class="`h-full w-1/4 text-center mx-2 pb-2 ${tabStyle('activities')}`">
         <i class="fas fa-calendar-alt"></i>
       </router-link>
