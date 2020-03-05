@@ -4,7 +4,13 @@
       v-for="activity in activities"
       v-bind:key="activity.name + Math.random()"
     >
-      <div class="m-2 font-bold">{{activity.name}}</div>
+      <div class="m-2">
+        <span class="self-center font-bold">{{activity.name}}</span>
+        <span class="text-sm underline float-right">
+          <span>Event Details<span>
+          <i class="fas fa-chevron-right self-center ml-2"></i>
+        </span>
+      </div>
       <div class="flex flex-no-wrap overflow-x-auto">
         <span
           v-for="piece in activity.pieces"
