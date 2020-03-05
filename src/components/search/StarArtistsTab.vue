@@ -12,12 +12,12 @@
       </button>
     </div>
     <!-- Featured artist -->
-    <div v-if="featuredArtist" class="mx-1 mb-2">
+    <div v-if="featuredArtist" class="mx-1 mb-2 clearfix">
       <div class="m-2">
         <span class="text-lg font-bold">Featured Artist</span>
         <span class="float-right underline self-center mr-4">Read More</span>
       </div>
-      <div class="w-full">
+      <div>
         <span class="mr-2 float-left">
           <img :src="featuredArtist.imageUrl"/>
           <div class="text-center font-bold">{{featuredArtist.name}}</div>
