@@ -1,3 +1,9 @@
+const {
+  intPercentageHeight,
+  intViewHeight,
+  intPercentageViewMargin
+} = require('./tailwind.custom.config')
+
 module.exports = {
   prefix: '',
   important: false,
@@ -266,6 +272,8 @@ module.exports = {
     },
     height: theme => ({
       auto: 'auto',
+      ...intViewHeight,
+      ...intPercentageHeight,
       ...theme('spacing'),
       full: '100%',
       screen: '100vh',
@@ -305,6 +313,7 @@ module.exports = {
     },
     margin: (theme, { negative }) => ({
       auto: 'auto',
+      ...intPercentageViewMargin,
       ...theme('spacing'),
       ...negative(theme('spacing')),
     }),
@@ -606,7 +615,7 @@ module.exports = {
     alignSelf: ['responsive'],
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
-    backgroundColor: ['responsive', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'focus-within'],
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],

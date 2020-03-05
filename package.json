@@ -4,7 +4,7 @@
   "description": "E-commerce platform for art pieces frontend",
   "main": "index.js",
   "scripts": {
-    "start": "parcel public/index.html",
+    "start": "parcel public/index.html --no-cache",
     "build": "rm -rf dist && parcel build public/index.html --public-url '/art-e-commerce-platform-frontend-live-demo'",
     "deploy": "npm run build && node scripts/deploy.js"
   },

@@ -12,6 +12,7 @@ import StarArtistsTab from './components/search/StarArtistsTab'
 import FollowPage from './components/follow/FollowPage'
 import HomePage from './components/home/HomePage'
 
+// TODO: remove app bar from all routes
 const appBar = {
   'app-bar': AppBar
 }

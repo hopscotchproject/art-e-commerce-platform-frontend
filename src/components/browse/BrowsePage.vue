@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="my-8 flex justify-around text-2xl">
+  <div class="h-92vh overflow-hidden flex flex-col justify-around">
+    <div class="flex justify-around text-2xl">
       <button>
         <i class="fas fa-filter text-orange-400 border-2 border-gray-200 rounded-full h-12 w-12 flex items-center justify-center"/>
       </button>
@@ -12,13 +12,14 @@
         </button>
       </router-link>
     </div>
-    <div v-if="pieces.length" class="my-8">
+    <!-- Swipe section -->
+    <div v-if="pieces.length" class="flex flex-col justify-around">
       <div class="flex justify-center">
         <router-link to="/detail">
           <img :src="currentPiece.imageUrl"/>
         </router-link>
       </div>
-      <div class="mt-4 text-center">
+      <div class="text-center">
         <div>
           <i class="fas fa-heart text-green-400"/>
           <span>{{currentPiece.roughLikes}}k</span>
@@ -27,7 +28,7 @@
         <div>{{`Artist: ${currentPiece.artist}`}}</div>
         <div>{{`Price: ${currentPiece.priceUnit} ${currentPiece.price}`}}</div>
       </div>
-      <div class="flex justify-around mt-8">
+      <div class="flex justify-around">
         <button @click="next">
           <i class="fas fa-times text-3xl text-red-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
         </button>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- search bar -->
-    <div class="m-2 p-2 border border-gray-400 rounded flex bg-gray-200 hover:bg-white">
+    <div class="m-2 p-2 border border-gray-400 rounded flex bg-gray-200 focus-within:bg-white">
       <i class="fas fa-search w-1/12 self-center"/>
       <input type="text" placeholder="Search" class="w-11/12 h-full outline-none bg-gray-200 focus:bg-white"/>
     </div>

@@ -1,9 +1,11 @@
 <template>
   <div>
     <div v-show="!showPostOverlay">
-      <router-view name="app-bar" class="fixed"/>
-      <router-view class="py-12"/>
-      <router-view name="footer-bar" class="fixed"/>
+      <!-- <router-view name="app-bar" class="fixed"/> -->
+      <div id="main-view-container" class="mb-8vh">
+        <router-view/>
+      </div>
+      <router-view name="footer-bar" class="fixed h-8p bottom-0 w-full"/>
     </div>
     <!-- TODO: Use Vue transition! -->
     <div v-if="showPostOverlay">

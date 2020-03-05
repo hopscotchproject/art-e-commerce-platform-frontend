@@ -7,7 +7,7 @@ const delayResolve = (data, delay = 50) => new Promise((resolve) => {
 
 class StubApi extends RestApi {
   getRecentLiked() {
-    const recentLiked = [...new Array(15)].map(() => ({
+    const recentLiked = [...new Array(25)].map(() => ({
       imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
       title: faker.lorem.word()
     }))
