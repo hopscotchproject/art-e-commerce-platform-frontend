@@ -5,6 +5,10 @@ import BrowsePage from './components/browse/BrowsePage'
 import RecentlyLiked from './components/browse/RecentlyLiked'
 import DetailPage from './components/browse/DetailPage'
 import SearchPage from './components/search/SearchPage'
+import ActivityTab from './components/search/ActivityTab'
+import StoreTab from './components/search/StoreTab'
+import CollectionTab from './components/search/CollectionTab'
+import StarArtistsTab from './components/search/StarArtistsTab'
 import FollowPage from './components/follow/FollowPage'
 import HomePage from './components/home/HomePage'
 
@@ -28,11 +32,25 @@ export default [{
   }
 },{
   path: '/search',
+  redirect: '/search/activities',
   components: {
     default: SearchPage,
     ...appBar,
     ...footerBar
-  }
+  },
+  children: [{
+    path: 'activities',
+    component: ActivityTab
+  },{
+    path: 'store',
+    component: StoreTab
+  },{
+    path: 'collection',
+    component: CollectionTab
+  },{
+    path: 'star-artists',
+    component: StarArtistsTab
+  }]
 },{
   path: '/follow',
   components: {
