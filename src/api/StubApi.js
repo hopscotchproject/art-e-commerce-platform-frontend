@@ -1,5 +1,6 @@
 import RestApi from './RestApi'
 import faker from 'faker'
+import { getRandomActivity, getTrendingRandomActivity } from '../fixtures/followingActivities'
 
 const delayResolve = (data, delay = 50) => new Promise((resolve) => {
   setTimeout(() => { resolve(data) }, delay)
@@ -83,6 +84,16 @@ class StubApi extends RestApi {
       imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
       introduction: faker.lorem.paragraph()
     }
+    return delayResolve(data)
+  }
+
+  getFollowingActivities(count = 15) {
+    const data = [...new Array(count)].map(getRandomActivity)
+    return delayResolve(data)
+  }
+
+  getTrendingActivities(count = 15) {
+    const data = [...new Array(count)].map(getTrendingRandomActivity)
     return delayResolve(data)
   }
 }

@@ -10,6 +10,8 @@ import StoreTab from './components/search/StoreTab'
 import CollectionTab from './components/search/CollectionTab'
 import StarArtistsTab from './components/search/StarArtistsTab'
 import FollowPage from './components/follow/FollowPage'
+import FollowingTab from './components/follow/FollowingTab'
+import TrendingTab from './components/follow/TrendingTab'
 import HomePage from './components/home/HomePage'
 
 // TODO: remove app bar from all routes
@@ -54,11 +56,19 @@ export default [{
   }]
 },{
   path: '/follow',
+  redirect: '/follow/following',
   components: {
     default: FollowPage,
     ...appBar,
     ...footerBar
-  }
+  },
+  children: [{
+    path: 'following',
+    component: FollowingTab
+  }, {
+    path: 'trending',
+    component: TrendingTab
+  }]
 },{
   path: '/home',
   components: {
