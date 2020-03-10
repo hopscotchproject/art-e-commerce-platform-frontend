@@ -96,6 +96,53 @@ class StubApi extends RestApi {
     const data = [...new Array(count)].map(getTrendingRandomActivity)
     return delayResolve(data)
   }
+
+  getUserPosts(count = 15) {
+    const data = [...new Array(count)].map(() => ({
+      imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+    }))
+    return delayResolve(data)
+  }
+
+  getUserArtworks() {
+    const getRandom = (items) => items[Math.floor(Math.random() * items.length)]
+    const data = {
+      originals: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+        status: getRandom(['primary-market', 'secondary-market', 'off-market'])
+      })),
+      currentlyInHand: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+        status: getRandom(['primary-market', 'secondary-market', 'off-market'])
+      })),
+      sellingOrSold: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+        status: getRandom(['selling', 'sold'])
+      })),
+      collections: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      })),
+    }
+    return delayResolve(data)
+  }
+
+  getUserFavorites() {
+    const data = {
+      posts: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      })),
+      artworks: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      })),
+      events: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      })),
+      albums: [...new Array(15)].map(() => ({
+        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      })),
+    }
+    return delayResolve(data)
+  }
 }
 
 export default new StubApi()
