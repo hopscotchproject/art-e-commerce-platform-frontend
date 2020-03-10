@@ -16,12 +16,13 @@
       </div>
     </div>
     <div class="flex flex-wrap">
-      <img
+      <span
         v-for="fav in showingFavs"
         v-bind:key="fav.imageUrl + Math.random()"
-        :src="fav.imageUrl"
         class="w-1/3"
-      />
+      >
+        <img :src="fav.imageUrl"/>
+      </span>
     </div>
   </div>
 </template>

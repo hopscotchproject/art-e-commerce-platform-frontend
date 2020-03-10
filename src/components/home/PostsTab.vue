@@ -1,11 +1,12 @@
 <template>
   <div class="flex flex-wrap">
-    <img
+    <span
       v-for="post in posts"
       v-bind:key="post.imageUrl + Math.random()"
-      :src="post.imageUrl"
-      class='w-1/3'
-    />
+      class="w-1/3"
+    >
+      <img :src="post.imageUrl"/>
+    </span>
   </div>
 </template>
 
