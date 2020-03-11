@@ -38,10 +38,12 @@
     "vuex": "^3.1.2"
   },
   "staticFiles": {
-    "staticPath": [{
-      "staticPath": "public/artworks",
-      "staticOutDir": "artworks"
-    }]
+    "staticPath": [
+      {
+        "staticPath": "public/artworks",
+        "staticOutDir": "artworks"
+      }
+    ]
   },
   "posthtml": {
     "recognizeSelfClosing": true

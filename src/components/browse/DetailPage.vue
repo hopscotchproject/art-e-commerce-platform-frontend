@@ -26,8 +26,10 @@
       <hr class="mx-4 mt-6"/>
       <div class="mx-4 mt-4 flex justify-around">
         <div>
-          <span class="underline">{{work.artist}}<span>
+          <span class="underline">{{work.artist}}</span>
           <i class="fas fa-user-plus ml-2 text-gray-400"></i>
+          <br/>
+          <span v-if="!!work.gallery" class="text-sm font-semibold underline">{{work.gallery}}</span>
         </div>
         <div class="text-sm">
           <div>{{work.title}}</div>
