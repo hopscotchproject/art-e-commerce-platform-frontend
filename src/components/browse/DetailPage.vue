@@ -8,7 +8,9 @@
     <div v-if="!!work">
       <div class="flex">
         <div class="w-2/12"/>
-        <img :src="work.imageUrl" class="rounded w-8/12"/>
+        <div class="rounded w-8/12">
+          <img :src="work.imageUrl"/>
+        </div>
         <div class="w-2/12 flex flex-col justify-around items-center">
           <div>
             <i class="fas fa-heart text-xl text-green-400"/>
