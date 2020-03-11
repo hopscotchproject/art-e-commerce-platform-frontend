@@ -1,10 +1,13 @@
 import RestApi from './RestApi'
 import faker from 'faker'
 import { getRandomActivity, getTrendingRandomActivity } from '../fixtures/followingActivities'
+import { allWorks } from '../fixtures/artworks'
 
 const delayResolve = (data, delay = 50) => new Promise((resolve) => {
   setTimeout(() => { resolve(data) }, delay)
 })
+
+const getRandom = (items) => items[Math.floor(Math.random() * items.length)]
 
 class StubApi extends RestApi {
   getRecentLiked() {
@@ -15,8 +18,9 @@ class StubApi extends RestApi {
     return delayResolve(recentLiked, 200)
   }
 
-  getOtherFeaturedWorks() {
-    return this.getRecentLiked()
+  getOtherFeaturedWorks(current) {
+    const found = allWorks.filter(work => work.artist === current.artist && work.id !== current.id)
+    return delayResolve(found)
   }
 
   getTags() {
@@ -25,15 +29,16 @@ class StubApi extends RestApi {
   }
 
   getNext(count = 1) {
+    const artwork = getRandom(allWorks)
     const data = [...new Array(count)].map(() => ({
-      imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/400/400`,
-      title: faker.lorem.word(),
-      price: faker.random.number(),
-      priceUnit: 'RMB',
-      artist: `${faker.name.firstName()} ${faker.name.lastName()}`,
       roughLikes: Math.floor(Math.random() * 100) / 10,
+      ...artwork
     }))
     return delayResolve(data)
+  }
+
+  getArtwork(id) {
+    return delayResolve(allWorks.find(work => work.id === id))
   }
 
   getActivities(count = 10) {
@@ -105,7 +110,6 @@ class StubApi extends RestApi {
   }
 
   getUserArtworks() {
-    const getRandom = (items) => items[Math.floor(Math.random() * items.length)]
     const data = {
       originals: [...new Array(15)].map(() => ({
         imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,

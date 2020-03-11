@@ -15,8 +15,8 @@
     <!-- Swipe section -->
     <div v-if="pieces.length" class="flex flex-col justify-around">
       <div class="flex justify-center">
-        <router-link to="/detail">
-          <img :src="currentPiece.imageUrl"/>
+        <router-link :to="`/detail/${currentPiece.id}`" class="object-contain">
+          <img :src="currentPiece.imageUrl" class="object-contain w-full h-50vh"/>
         </router-link>
       </div>
       <div class="text-center">

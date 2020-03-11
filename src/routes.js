@@ -109,7 +109,7 @@ export default [{
     ...footerBar
   }
 },{
-  path: '/detail',
+  path: '/detail/:id',
   components: {
     default: DetailPage,
     ...appBar,

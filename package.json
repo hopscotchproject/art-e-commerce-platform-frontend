@@ -23,6 +23,7 @@
     "autoprefixer": "^9.7.4",
     "gh-pages": "^2.2.0",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.3.1",
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
@@ -35,6 +36,12 @@
     "vue-hot-reload-api": "^2.3.4",
     "vue-router": "^3.1.6",
     "vuex": "^3.1.2"
+  },
+  "staticFiles": {
+    "staticPath": [{
+      "staticPath": "public/artworks",
+      "staticOutDir": "artworks"
+    }]
   },
   "posthtml": {
     "recognizeSelfClosing": true
