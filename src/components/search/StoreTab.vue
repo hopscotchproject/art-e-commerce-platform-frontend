@@ -3,7 +3,7 @@
     <div class="flex justify-around m-4">
       <button class="border border-gray-600 p-2 rounded bg-gray-200">
         <i class="fas fa-th-large"></i>
-        <span>{{`Catogory: Cloth`}}</span>
+        <span>{{`Catogory: All`}}</span>
       </button>
       <button class="border border-gray-600 p-2 rounded bg-gray-200">
         <i class="fas fa-sort-amount-up-alt"></i>
@@ -17,7 +17,7 @@
         class="w-1/3 px-1"
       >
         <img :src="item.imageUrl"/>
-        <div class="text-center text-sm">{{item.name}}</div>
+        <div class="text-center text-sm">{{item.title}}</div>
         <div class="text-center text-sm">{{`${item.priceUnit} ${item.price}`}}</div>
       </span>
     </div>

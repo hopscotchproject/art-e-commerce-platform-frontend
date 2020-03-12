@@ -42,6 +42,10 @@
       {
         "staticPath": "public/artworks",
         "staticOutDir": "artworks"
+      },
+      {
+        "staticPath": "public/store",
+        "staticOutDir": "store"
       }
     ]
   },
