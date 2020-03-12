@@ -98,6 +98,34 @@ const paintings = [{
   'about the work': 'ALLEGRO series (2015-) is a temporary life event, a carnival to me. Rhythm, melody, tone, bit and motion with the most primitive medium, charcoal or monochromatic oil rush.',
   'about the artist': 'He has been teaching painting and drawing courses at Graduate School of Fine Art / Illustration at Academy of Art University. And his teaching extended to workshops in various cities worldwide and video lectures through YouTube channel online. Zin Lim is creaing paintings, drawings and art videos at his art studio in Alameda, CA.',
   'about the gallery': null
+},{
+  id: 'painting-3',
+  imageUrl: '/artworks/painting-3.png',
+  artist: 'Joshua Hagler',
+  gallery: 'Cris Worley Fine Arts',
+  title: 'Music Video VI, 2019',
+  medium: 'Ink, oil, wax on polyester film mounted on wood panel',
+  size: '10 × 8 in / 25.4 × 20.3 cm',
+  price: '680',
+  priceUnit: '$',
+  edition: 'of 1',
+  'about the work': 'N/A',
+  'about the artist':'Preoccupied with the extremes of religious experience and its psychological origins, Joshua Hagler works in mixed media, impasto oil painting, and digital animation to explore evangelism, Christian mysticism, and prophecy. In his twisted images Hagler integrates his Middle American upbringing with an exploration of obscure Italian religious art and its various techniques and traditions. Often the sheer density of media in a single work distorts his imagery, creating a grotesque and haunting effect. Hagler also works in installation, photography, and sculpture. For a 2012 solo exhibition, “The Imagined Chase”, he interviewed four men with uncommon religious perspectives. From these interviews or “confessions”, he created mixed-media paintings, sculptures, and digital 3-D videos, including a projection room in which the testimonies of all four men played in a continuously looped 3-D animation.',
+  'about the gallery': 'Established in 2010, Cris Worley Fine Arts is dedicated to promoting innovative work by contemporary artists at various stages of their careers. The gallery’s dynamic approach to fostering artistic growth includes the presentation of compelling exhibitions, and collaborations with public institutions, professional art organizations, and collectors, both locally and internationally. As a charter member of Contemporary Art Dealers Dallas (CADD), Cris Worley has played a vital role in the vigorous growth of the Dallas arts community, encouraging the evolution of contemporary art collections.'
+},{
+  id: 'painting-4',
+  imageUrl: '/artworks/painting-4.png',
+  artist: 'Plastic Jesus',
+  gallery: null,
+  title: 'No More Heroes, 2017',
+  medium: 'Acrylic and ink on paper / canvas',
+  size: '22 x 18 in / 55.9 x 45.7cm',
+  price: '750',
+  priceUnit: '$',
+  edition: 'of 1',
+  'about the work': 'N/A',
+  'about the artist':'Plastic Jesus is a Los Angeles based street artist that specializes in bold stencil and installation work, inspired by world news events, society, the urban environment, culture and politics. his work is more about shining a small light into some of those dark corners of society then standing back and watching reactions and opinions. his work combines humor, irony, criticism and unique opinion to create art that engages on many levels.',
+  'about the gallery': null
 }]
 
 const photographs = [{
