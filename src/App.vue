@@ -3,7 +3,10 @@
     <div v-show="!showPostOverlay">
       <!-- <router-view name="app-bar" class="fixed"/> -->
       <div id="main-view-container" class="mb-8vh">
-        <router-view/>
+        <!-- only cache 'BrowsePage' -->
+        <keep-alive include="BrowsePage"> 
+          <router-view/>
+        </keep-alive>
       </div>
       <router-view name="footer-bar" class="fixed h-8p bottom-0 w-full"/>
     </div>

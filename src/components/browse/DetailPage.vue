@@ -23,6 +23,14 @@
           <i class="fas fa-share-square text-xl text-gray-400"></i>
         </div>
       </div>
+      <div class="flex justify-around mt-6">
+        <button>
+          <i class="fas fa-times text-3xl text-red-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
+        </button>
+        <button>
+          <i class="fas fa-heart text-2xl text-green-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
+        </button>
+      </div>
       <hr class="mx-4 mt-6"/>
       <div class="mx-4 mt-4 flex justify-around">
         <div>
