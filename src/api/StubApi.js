@@ -25,10 +25,16 @@ const prefixImageUrl = (url) => window.location.hostname === 'hopscotchproject.g
 
 class StubApi extends RestApi {
   getRecentLiked() {
-    const recentLiked = [...new Array(25)].map(() => ({
-      imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
-      title: faker.lorem.word()
-    }))
+    const recentLiked = ['/artworks/object-1.png',
+    '/artworks/object-2.png',
+    '/artworks/object-3.png',
+    '/artworks/object-4.png',
+    '/artworks/object-5.png',
+    '/artworks/painting-1.jpg',
+    '/artworks/painting-2.png',
+    '/artworks/painting-3.png',
+    '/artworks/painting-4.png',
+    '/artworks/painting-5.png'].map(url => ({ imageUrl: prefixImageUrl(url) }))
     return delayResolve(recentLiked, 200)
   }
 

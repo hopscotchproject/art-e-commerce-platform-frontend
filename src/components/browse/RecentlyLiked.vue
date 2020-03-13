@@ -10,7 +10,7 @@
       <span
         class="w-1/3"
         v-for="liked in recentlyLiked"
-        v-bind:key="liked.imageUrl + liked.title"
+        v-bind:key="liked.imageUrl + Math.random()"
       >
         <img :src="liked.imageUrl"/>
       </span>

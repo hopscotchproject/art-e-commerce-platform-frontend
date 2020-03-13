@@ -6,8 +6,8 @@
       <span> recently posted</span>
     </div>
     <div class="clearfix mt-2">
-      <img :src="data.post.imageUrl" class="mr-2 mt-2 float-left max-w-xs"/>
-      <p class="text-sm">{{data.post.text}}</p>
+      <img :src="data.post.imageUrl" class="mr-2 mt-2 max-w-xs"/>
+      <div class="text-sm">{{data.post.text}}</div>
     </div>
     <social-util-bar :data="data"/>
   </div>

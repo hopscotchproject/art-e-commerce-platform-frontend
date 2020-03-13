@@ -38,7 +38,7 @@ const hellerGalleryEvent = {
   }]
 }
 
-const allEvents = [...new Array(5)]
+const allEvents = [...new Array(1)]
 .map(() => Object.assign({}, hellerGalleryEvent))
 .map(event => {
   if (window.location.hostname === 'hopscotchproject.github.io') {
