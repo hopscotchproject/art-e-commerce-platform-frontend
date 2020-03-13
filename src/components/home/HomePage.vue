@@ -23,7 +23,7 @@
       <button class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Message</button>
     </div>
     <div class="mx-4 my-2">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>I take super cold shower to practice swimming in winter.</p>
     </div>
     <div class="flex shadow">
       <router-link

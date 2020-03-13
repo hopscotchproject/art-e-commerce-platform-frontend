@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-red-500 flex justify-around text-white text-2xl">
+  <footer class="bg-red-500 flex justify-around text-white text-2xl z-10">
     <router-link to="/browse" class="self-center">
       <span>
         <i class="fas fa-home"></i>

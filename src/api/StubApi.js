@@ -11,6 +11,9 @@ const delayResolve = (data, delay = 50) => new Promise((resolve) => {
 
 const getRandom = (items) => items[Math.floor(Math.random() * items.length)]
 
+const prefixImageUrl = (url) => window.location.hostname === 'hopscotchproject.github.io' ? 
+  `/art-e-commerce-platform-frontend-live-demo/${url}` : url
+
 class StubApi extends RestApi {
   getRecentLiked() {
     const recentLiked = [...new Array(25)].map(() => ({
@@ -105,21 +108,40 @@ class StubApi extends RestApi {
 
   getUserArtworks() {
     const data = {
-      originals: [...new Array(15)].map(() => ({
-        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
-        status: getRandom(['primary-market', 'secondary-market', 'off-market'])
-      })),
-      currentlyInHand: [...new Array(15)].map(() => ({
-        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
-        status: getRandom(['primary-market', 'secondary-market', 'off-market'])
-      })),
-      sellingOrSold: [...new Array(15)].map(() => ({
-        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
-        status: getRandom(['selling', 'sold'])
-      })),
-      collections: [...new Array(15)].map(() => ({
-        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
-      })),
+      originals: [],
+      // currentlyInHand: [...new Array(15)].map(() => ({
+      //   imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      //   status: getRandom(['primary-market', 'secondary-market', 'off-market'])
+      // })),
+      currentlyInHand: [{
+        imageUrl: prefixImageUrl('/artworks/painting-1.jpg'),
+        status: 'off-market'
+      },{
+        imageUrl:  prefixImageUrl('/artworks/photograph-1.jpg'),
+        status: 'secondary-market'
+      }],
+      sellingOrSold: [{
+        imageUrl:  prefixImageUrl('/artworks/photograph-1.jpg'),
+        status: 'selling'
+      }],
+      // sellingOrSold: [...new Array(15)].map(() => ({
+      //   imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      //   status: getRandom(['selling', 'sold'])
+      // })),
+      collections: [{
+        name: 'Graffiti Influenced',
+        clicks: '15k',
+        comments: '5k',
+        favorites: '350',
+        previewImageUrls: [
+          prefixImageUrl('/artworks/object-3.png'),
+          prefixImageUrl('/artworks/sculpture-1.png'),
+          prefixImageUrl('/artworks/painting-1.jpg')
+        ]
+      }]
+      // collections: [...new Array(15)].map(() => ({
+      //   imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
+      // })),
     }
     return delayResolve(data)
   }

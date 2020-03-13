@@ -4,9 +4,9 @@
     <div class="py-4">
       <div class="flex justify-between px-4 mb-2">
         <span class="font-bold">Original Artworks</span>
-        <button class="border border-gray-400 rounded bg-gray-200 px-2">Filters</button>
+        <button v-show="!!originals.length" class="border border-gray-400 rounded bg-gray-200 px-2">Filters</button>
       </div>
-      <div class="flex overflow-x-auto">
+      <div v-if="!!originals.length" class="flex overflow-x-auto">
         <div class="relative flex-shrink-0" v-for="work in originals" v-bind:key="work.imageUrl + Math.random()">
           <div class="ribbon">
             <span v-if="work.status === 'off-market'" class="off-market font-semibold">off market</span>
@@ -16,6 +16,7 @@
           <img :src="work.imageUrl"/>
         </div>
       </div>
+      <div v-else class="px-4">N/A</div>
     </div>
     <!-- Currently in hand -->
     <div class="pb-4">
@@ -23,16 +24,14 @@
         <span class="font-bold">Currently In Hand</span>
       </div>
       <div class="flex overflow-x-auto">
-        <div class="flex overflow-x-auto">
-        <div class="relative flex-shrink-0" v-for="work in currentlyInHand" v-bind:key="work.imageUrl + Math.random()">
+        <div class="relative flex-shrink-0 mx-2 max-w-xs" v-for="work in currentlyInHand" v-bind:key="work.imageUrl + Math.random()">
           <div class="ribbon">
             <span v-if="work.status === 'off-market'" class="off-market font-semibold">off market</span>
             <span v-else-if="work.status === 'primary-market'" class="primary-market font-semibold">primary</span>
             <span v-else-if="work.status === 'secondary-market'" class="secondary-market font-semibold">secondary</span>
           </div>
-          <img :src="work.imageUrl"/>
+          <img :src="work.imageUrl" class="h-48"/>
         </div>
-      </div>
       </div>
     </div>
     <!-- Selling/Sold -->
@@ -41,13 +40,12 @@
         <span class="font-bold">Selling/Sold</span>
       </div>
       <div class="flex overflow-x-auto">
-        <div class="flex overflow-x-auto">
-        <div class="relative flex-shrink-0" v-for="work in sellingOrSold" v-bind:key="work.imageUrl + Math.random()">
+        <div class="relative flex-shrink-0 mx-2 max-w-xs" v-for="work in sellingOrSold" v-bind:key="work.imageUrl + Math.random()">
           <div class="ribbon">
             <span v-if="work.status === 'selling'" class="selling font-semibold">selling</span>
             <span v-else-if="work.status === 'sold'" class="sold font-semibold">sold</span>
           </div>
-          <img :src="work.imageUrl"/>
+          <img :src="work.imageUrl" class="h-48"/>
         </div>
       </div>
     </div>
@@ -57,12 +55,31 @@
         <span class="font-bold">Albums</span>
         <button class="border border-gray-400 rounded bg-gray-200 px-2">Filters</button>
       </div>
-      <div class="flex overflow-x-auto">
-        <img
-          v-for="collection in collections"
-          v-bind:key="collection.imageUrl + Math.random()"
-          :src="collection.imageUrl"
-        />
+      <div
+        v-for="collection in collections"
+        v-bind:key="collection.name"
+      >
+        <div class="font-bold underline mx-2">{{collection.name}}</div>
+        <div class="flex overflow-x-auto">
+          <span
+            v-for="url in collection.previewImageUrls"
+            v-bind:key="url"
+            class="flex-shrink-0"
+          >
+            <img :src="url" class="h-48 px-2"/>
+          <span/>
+        </div>
+        <div class="flex justify-around">
+          <span>
+            click: {{collection.clicks}}
+          </span>
+          <span>
+            comments: {{collection.comments}}
+          </span>
+          <span>
+            favorites: {{collection.favorites}}
+          </span>
+        </div>
       </div>
     </div>
   </div>

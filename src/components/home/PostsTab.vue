@@ -20,7 +20,7 @@ export default {
     posts: []
   }),
   mounted() {
-    stubApi.getUserPosts(35).then(data => {
+    stubApi.getUserPosts(10).then(data => {
       this.posts = data
     })
   }
