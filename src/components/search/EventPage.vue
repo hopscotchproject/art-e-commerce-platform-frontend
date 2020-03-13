@@ -5,7 +5,7 @@
         <i class="fas fa-chevron-left"/>
       </router-link>
     </div>
-    <div>
+    <div v-if="!!event">
       <!-- detail images -->
       <div class="flex flex-row overflow-x-auto">
         <span

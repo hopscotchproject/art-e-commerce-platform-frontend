@@ -12,13 +12,18 @@ const getGallery = () => ({
   name: `${faker.company.companyName()} Gallery`
 })
 
+const getLikesAndComments = (likes = null, comments = null) => ({
+  likes: likes || faker.random.number(),
+  comments: comments || faker.random.number(),
+})
+
 /**
  * User favoriting items activity
  */
-const getUserFavoratingItems = () => ({
+const getUserFavoratingItems = (user = null, items = null) => ({
   type: 'user-favoriting-items',
-  user: getUser(),
-  items: [...new Array(4)].map(() => ({
+  user: user || getUser(),
+  items: items || [...new Array(4)].map(() => ({
     imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/100/100`
   }))
 })
@@ -26,10 +31,10 @@ const getUserFavoratingItems = () => ({
 /**
  * User posting activity
  */
-const getUserPosting = () => ({
+const getUserPosting = (user = null, post = null) => ({
   type: 'user-posting',
-  user: getUser(),
-  post: {
+  user: user || getUser(),
+  post: post || {
     imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
     text: faker.lorem.paragraph()
   }
@@ -38,19 +43,19 @@ const getUserPosting = () => ({
 /**
  * User following user activity
  */
-const getUserFollowingUser = () => ({
+const getUserFollowingUser = (user = null, followed = null) => ({
   type: 'user-following-user',
-  user: getUser(),
-  followed: getUser()
+  user: user || getUser(),
+  followed: followed || getUser()
 })
 
 /**
  * Gallery creating event activity
  */
-const getGalleryCreatingEvent = () => ({
+const getGalleryCreatingEvent = (gallery = null, event = null) => ({
   type: 'gallery-creating-event',
-  gallery: getGallery(),
-  event: {
+  gallery: gallery || getGallery(),
+  event: event || {
     name: faker.lorem.word(),
     imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/100/100`
   }
@@ -59,10 +64,10 @@ const getGalleryCreatingEvent = () => ({
 /**
  * User putting item for sale activity
  */
-const getUserPuttingItemForSale = () => ({
+const getUserPuttingItemForSale = (user = null, item = null) => ({
   type: 'user-putting-item-for-sale',
-  user: getUser(),
-  item: {
+  user: user || getUser(),
+  item: item || {
     name: faker.commerce.productName(),
     imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/100/100`
   }
@@ -71,10 +76,10 @@ const getUserPuttingItemForSale = () => ({
 /**
  * User purchasing activity
  */
-const getUserPurchasing = () => ({
+const getUserPurchasing = (user = null, item = null) => ({
   type: 'user-purchasing',
-  user: getUser(),
-  item: {
+  user: user || getUser(),
+  item: item || {
     name: faker.commerce.productName(),
     imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/100/100`
   }
@@ -83,12 +88,19 @@ const getUserPurchasing = () => ({
 /**
  * User creating collection activity
  */
-const getUserCreatingCollection = () => ({
+const getUserCreatingCollection = (user = null, collection = null) => ({
   type: 'user-creating-collection',
-  user: getUser(),
-  collection: {
+  user: user || getUser(),
+  collection: collection || {
     name: faker.lorem.word(),
-    imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/100/100`
+    imageUrls: [
+      `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
+      `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
+      `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
+      `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
+      `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
+      `https://picsum.photos/seed/${faker.lorem.word()}/100/100`,
+    ]
   }
 })
 
@@ -127,13 +139,14 @@ const getTrendingRandomActivity = () => {
 }
 
 export {
-  // getUserFavoratingItems,
-  // getUserCreatingCollection,
-  // getUserFollowingUser,
-  // getUserPosting,
-  // getUserPurchasing,
-  // getUserPuttingItemForSale,
-  // getGalleryCreatingEvent,
+  getLikesAndComments,
+  getUserFavoratingItems,
+  getUserCreatingCollection,
+  getUserFollowingUser,
+  getUserPosting,
+  getUserPurchasing,
+  getUserPuttingItemForSale,
+  getGalleryCreatingEvent,
   getRandomActivity,
   getTrendingRandomActivity,
 }

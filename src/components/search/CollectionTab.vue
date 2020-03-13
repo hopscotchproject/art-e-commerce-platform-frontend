@@ -27,10 +27,10 @@
       <div class="flex flex-no-wrap overflow-x-auto">
         <span
           v-for="piece in collection.pieces"
-          v-bind:key="piece.title + Math.random()"
+          v-bind:key="piece.title  + Math.random()"
           class="flex-shrink-0 mx-2 mb-2"
         >
-          <img :src="piece.imageUrl"/>
+          <img :src="piece.imageUrl" class="h-24"/>
           <div class="text-center text-sm">{{piece.title}}</div>
         </span>
       </div>

@@ -6,7 +6,7 @@
       <span> recently posted</span>
     </div>
     <div class="clearfix mt-2">
-      <img :src="data.post.imageUrl" class="mr-2 mt-2 float-left"/>
+      <img :src="data.post.imageUrl" class="mr-2 mt-2 float-left max-w-xs"/>
       <p class="text-sm">{{data.post.text}}</p>
     </div>
     <social-util-bar :data="data"/>
@@ -52,7 +52,7 @@
       <span class="font-bold underline">{{data.item.name}}</span>
     </div>
     <div class="clearfix mt-2">
-      <img :src="data.item.imageUrl" class="mr-2 mt-2 float-left"/>
+      <img :src="data.item.imageUrl" class="mr-2 mt-2 float-left h-48"/>
     </div>
     <social-util-bar :data="data"/>
   </div>
@@ -64,7 +64,15 @@
       <span class="font-bold underline">{{data.collection.name}}</span>
     </div>
     <div class="clearfix mt-2">
-      <img :src="data.collection.imageUrl" class="mr-2 mt-2 float-left"/>
+      <div class="flex overflow-x-auto">
+        <span
+          v-for="imageUrl in data.collection.imageUrls"
+          v-bind:key="imageUrl + Math.random()"
+          class="flex-shrink-0 mx-1"
+        >
+          <img :src="imageUrl" class="h-24">
+        </span>
+      </div>
     </div>
     <social-util-bar :data="data"/>
   </div>
@@ -79,7 +87,7 @@
         v-for="item in data.items"
         v-bind:key="item.imageUrl + Math.random()"
         :src="item.imageUrl"
-        class="mr-2 mt-2"
+        class="mr-2 mt-2 h-24"
       />
     </div>
     <social-util-bar :data="data"/>
