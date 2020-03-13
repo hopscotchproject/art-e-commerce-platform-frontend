@@ -3,6 +3,7 @@ import faker from 'faker'
 import { getRandomActivity, getTrendingRandomActivity } from '../fixtures/followingActivities'
 import { allWorks } from '../fixtures/artworks'
 import { allItems } from '../fixtures/store'
+import { allEvents } from '../fixtures/events'
 
 const delayResolve = (data, delay = 50) => new Promise((resolve) => {
   setTimeout(() => { resolve(data) }, delay)
@@ -42,15 +43,13 @@ class StubApi extends RestApi {
     return delayResolve(allWorks.find(work => work.id === id))
   }
 
-  getActivities(count = 10) {
-    const data = [...new Array(count)].map(() => ({
-      name: faker.lorem.word(),
-      pieces: [...new Array(15)].map(() => ({
-        imageUrl: `https://picsum.photos/seed/${faker.lorem.word()}/200/200`,
-        title: faker.lorem.word()
-      }))
-    }))
-    return delayResolve(data)
+  getEvents() {
+    return delayResolve(allEvents)
+  }
+
+  getEvent(id) {
+    const found = allEvents.find(event => event.id === id)
+    return delayResolve(found)
   }
 
   getStoreItems() {

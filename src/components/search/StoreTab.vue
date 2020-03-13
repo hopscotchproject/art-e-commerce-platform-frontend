@@ -13,7 +13,7 @@
     <div class="flex flex-wrap">
       <span
         v-for="item in storeItems"
-        v-bind:key="item.name + Math.random()"
+        v-bind:key="item.title + Math.random()"
         class="w-1/3 px-1"
       >
         <img :src="item.imageUrl"/>

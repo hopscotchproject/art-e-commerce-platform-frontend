@@ -8,10 +8,12 @@ import DetailPage from './components/browse/DetailPage'
 
 // search page and sub tabs
 import SearchPage from './components/search/SearchPage'
-import ActivityTab from './components/search/ActivityTab'
+import EventTab from './components/search/EventTab'
 import StoreTab from './components/search/StoreTab'
 import CollectionTab from './components/search/CollectionTab'
 import StarArtistsTab from './components/search/StarArtistsTab'
+
+import EventPage from './components/search/EventPage'
 
 // follow page and tabs
 import FollowPage from './components/follow/FollowPage'
@@ -46,15 +48,15 @@ export default [{
   }
 },{
   path: '/search',
-  redirect: '/search/activities',
+  redirect: '/search/events',
   components: {
     default: SearchPage,
     ...appBar,
     ...footerBar
   },
   children: [{
-    path: 'activities',
-    component: ActivityTab
+    path: 'events',
+    component: EventTab
   },{
     path: 'store',
     component: StoreTab
@@ -112,6 +114,13 @@ export default [{
   path: '/detail/:id',
   components: {
     default: DetailPage,
+    ...appBar,
+    ...footerBar
+  }
+},{
+  path: '/event/:id',
+  components: {
+    default: EventPage,
     ...appBar,
     ...footerBar
   }

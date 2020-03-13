@@ -16,7 +16,7 @@
     <hr/>
     <!-- Search page tabs -->
     <div class="flex mt-2 shadow">
-      <router-link to='/search/activities' :class="`h-full w-1/4 text-center mx-2 pb-2 ${tabStyle('activities')}`">
+      <router-link to='/search/events' :class="`h-full w-1/4 text-center mx-2 pb-2 ${tabStyle('events')}`">
         <i class="fas fa-calendar-alt"></i>
       </router-link>
       <router-link to='/search/store' :class="`h-full w-1/4 text-center mx-2 pb-2 ${tabStyle('store')}`">
