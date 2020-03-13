@@ -38,11 +38,13 @@ const hellerGalleryEvent = {
   }]
 }
 
-const allEvents = [...new Array(5)].map(() => hellerGalleryEvent).map(event => {
+const allEvents = [...new Array(5)]
+.map(() => Object.assign({}, hellerGalleryEvent))
+.map(event => {
   if (window.location.hostname === 'hopscotchproject.github.io') {
     ['coverImageUrls', 'detailImageUrls', 'pieceImageUrls'].forEach(key => {
       event[key] = event[key].map(
-        imageUrl => `/art-e-commerce-platform-frontend-live-demo/${imageUrl}`)
+        imageUrl => `/art-e-commerce-platform-frontend-live-demo${imageUrl}`)
     })
   }
   return event
