@@ -20,7 +20,13 @@
     <div class="flex justify-around items-stretch">
       <button class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Followers</button>
       <button class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Followings</button>
-      <button class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Message</button>
+      <locked>
+        <button slot="locked" class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">
+          <i class="fas fa-lock"></i>
+          Message
+        </button>
+        <button slot="unlocked" class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Message</button>
+      </locked>
     </div>
     <div class="mx-4 my-2">
       <p>I take super cold shower to practice swimming in winter.</p>
@@ -56,8 +62,12 @@
 </template>
 
 <script>
+import Locked from '../shared/Locked'
 export default {
   name: 'HomePage',
+  components: {
+    locked: Locked
+  },
   methods: {
     tabStyle(tab) {
       return this.$route.path.split('/')[2] === tab ? 'border-b-2 border-orange-400' : ''

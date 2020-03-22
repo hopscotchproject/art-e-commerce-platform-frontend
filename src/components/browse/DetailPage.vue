@@ -23,6 +23,12 @@
           <i class="fas fa-share-square text-xl text-gray-400"></i>
         </div>
       </div>
+      <div class="mt-4 pr-4 flex justify-end">
+        <locked>
+          <span slot="locked" class="underline text-sm">Download HD image for $1</span>
+          <span slot="unlocked" class="underline text-sm">Download</span> 
+        </locked>
+      </div>
       <div class="flex justify-around mt-6">
         <button>
           <i class="fas fa-times text-3xl text-red-400 border-8 border-gray-200 rounded-full h-16 w-16 flex items-center justify-center"/>
@@ -48,7 +54,13 @@
       <hr class="mx-4 mt-6"/>
       <div class="mx-4 mt-4">
         <div class="text-center">
-          {{`${work.priceUnit} ${work.price}`}}
+          <locked>
+            <span slot="locked">
+              <i class="fas fa-lock"></i>
+              See Price for $1
+            </span>
+            <span slot="unlocked">{{`${work.priceUnit} ${work.price}`}}</span>
+          </locked>
         </div>
         <div class="flex justify-around items-center mt-4">
           <button class="bg-red-400 rounded px-4 py-2 text-white">Buy Now</button>
@@ -105,9 +117,13 @@
 
 <script>
 import stubApi from '../../api/StubApi'
+import Locked from '../shared/Locked'
 
 export default {
   name: 'DetailPage',
+  components: {
+    'locked': Locked
+  },
   data: () => ({
     work: null,
     otherFeaturedWorks: []
