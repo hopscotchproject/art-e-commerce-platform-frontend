@@ -26,7 +26,7 @@
         </div>
         <div>{{`Title: ${currentPiece.title}`}}</div>
         <div>{{`Artist: ${currentPiece.artist}`}}</div>
-        <div>{{`Price: ${currentPiece.priceUnit} ${currentPiece.price}`}}</div>
+        <!-- <div>{{`Price: ${currentPiece.priceUnit} ${currentPiece.price}`}}</div> -->
       </div>
       <div class="flex justify-around">
         <button @click="next">

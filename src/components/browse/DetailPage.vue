@@ -25,8 +25,8 @@
       </div>
       <div class="mt-4 pr-4 flex justify-end">
         <locked>
-          <span slot="locked" class="underline text-sm">Download HD image for $1</span>
-          <span slot="unlocked" class="underline text-sm">Download</span> 
+          <button slot="locked" class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Download HD image for $1</button>
+          <button slot="unlocked" class="border border-gray-400 rounded px-4 py-1 font-bold bg-gray-100 text-sm">Download</button> 
         </locked>
       </div>
       <div class="flex justify-around mt-6">
